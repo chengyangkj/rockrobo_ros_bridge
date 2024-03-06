@@ -1,25 +1,46 @@
 #ifndef XIAOMI_BRIDGE_XIAOMI_PLAYER_INTERFACE_H
 #define XIAOMI_BRIDGE_XIAOMI_PLAYER_INTERFACE_H
 
-#include <libplayerc/playerc.h>
-#include <vector>
-#include <map>
+#include "libplayerc/playerc.h"
 #include <iostream>
+#include <map>
+#include <vector>
 
 typedef std::map<std::string, float> SensorData;
-struct irData_t { float wall; float cliff0; float cliff1; float cliff2; float cliff3; };
-struct batteryState_t { double percentage; bool charging; };
-struct velCmd_t { double px; double py; double pz;
-                  double ax; double ay; double az; };
-struct odometryData_t {double px; double py; double vx; double vy; double rot_py; double rot_vy; };
+struct irData_t {
+  float wall;
+  float cliff0;
+  float cliff1;
+  float cliff2;
+  float cliff3;
+};
+struct batteryState_t {
+  double percentage;
+  bool charging;
+};
+struct velCmd_t {
+  double px;
+  double py;
+  double pz;
+  double ax;
+  double ay;
+  double az;
+};
+struct odometryData_t {
+  double px;
+  double py;
+  double vx;
+  double vy;
+  double rot_py;
+  double rot_vy;
+};
 
-class XiaomiPlayerInterface
-{
+class XiaomiPlayerInterface {
 public:
   XiaomiPlayerInterface(std::string);
   ~XiaomiPlayerInterface();
 
-  void getLaserData(float*);
+  void getLaserData(float *, int *);
   irData_t getIrSensorData();
   batteryState_t getBatteryData();
   odometryData_t getOdometryData();
@@ -37,7 +58,6 @@ private:
   playerc_laser_t *laser_scanner_;
   playerc_position2d_t *base_;
   playerc_power_t *battery_info_;
-
 };
 
-#endif //XIAOMI_BRIDGE_XIAOMI_PLAYER_INTERFACE_H
+#endif // XIAOMI_BRIDGE_XIAOMI_PLAYER_INTERFACE_H

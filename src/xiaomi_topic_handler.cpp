@@ -33,6 +33,7 @@ void XiaomiTopicHandler::run()
 
   ros::Rate loop_rate(20);
   float laser_scan_data[360] = {0};
+  int laser_intensity_data[360] = {0};
   while (ros::ok())
   {
     player_interface_->updateRobotState();
@@ -46,8 +47,8 @@ void XiaomiTopicHandler::run()
     struct batteryState_t battery_data = player_interface_->getBatteryData();
     publishBatteryState_(battery_data);
 
-    player_interface_->getLaserData(laser_scan_data);
-    publishLaserScan_(laser_scan_data);
+    player_interface_->getLaserData(laser_scan_data, laser_intensity_data);
+    publishLaserScan_(laser_scan_data, laser_intensity_data);
 
     struct odometryData_t odom_data = player_interface_->getOdometryData();
     publishOdometry_(odom_data);
@@ -125,7 +126,7 @@ void XiaomiTopicHandler::publishBatteryState_(struct batteryState_t data)
   msg.power_supply_health = sensor_msgs::BatteryState::POWER_SUPPLY_HEALTH_UNKNOWN;
   msg.power_supply_technology = sensor_msgs::BatteryState::POWER_SUPPLY_TECHNOLOGY_LION;
   msg.percentage = (float)data.percentage;
-
+  msg.charge = data.charging;
   if(data.charging)
   {
     msg.power_supply_status = sensor_msgs::BatteryState::POWER_SUPPLY_STATUS_CHARGING;
@@ -143,7 +144,7 @@ void XiaomiTopicHandler::publishBatteryState_(struct batteryState_t data)
   battery_pub_.publish(msg);
 }
 
-void XiaomiTopicHandler::publishLaserScan_(float *scan_data)
+void XiaomiTopicHandler::publishLaserScan_(float *scan_data,int *intensity_data)
 {
   sensor_msgs::LaserScan msg;
   msg.header.stamp = ros::Time::now();
@@ -157,7 +158,7 @@ void XiaomiTopicHandler::publishLaserScan_(float *scan_data)
   msg.range_min = 0.0;
 
   msg.ranges.assign(scan_data, scan_data + 360);
-
+  msg.intensities.assign(intensity_data, intensity_data + 360);
   laser_pub_.publish(msg);
 }
 

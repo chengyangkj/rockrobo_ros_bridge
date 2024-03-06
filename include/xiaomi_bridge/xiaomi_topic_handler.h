@@ -31,7 +31,7 @@ private:
   void publishCliffData_(struct irData_t);
   void publishFrontSonar_(double);
   void publishBatteryState_(struct batteryState_t);
-  void publishLaserScan_(float*);
+  void publishLaserScan_(float *, int *);
   void publishOdometry_(struct odometryData_t);
 
   ros::NodeHandle nh_;
