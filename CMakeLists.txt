@@ -41,7 +41,6 @@ link_directories(/usr/local/lib)
 # 将库的头文件目录添加到项目的包含路径中
 include_directories(/usr/local/include/player-3.1)
 # add_dependencies(xiaomi_bridge_node)
-message("!!!!!!!!!!!!!!!!:${CATKIN_DEVEL_PREFIX}")
 target_link_libraries(${PROJECT_NAME}_node
   ${catkin_LIBRARIES}
 libplayerc++.so libplayerc.so
