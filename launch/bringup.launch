@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <launch>
-  <param name="robot_description" textfile="$(find xiaomi_bridge)/urdf/xiaomi_gen1.urdf" />
+  <param name="robot_description" textfile="$(find rockrobo_ros_bridge)/urdf/xiaomi_gen1.urdf" />
   <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher">
     <param name="publish_frequency" type="double" value="5.0" />
   </node>
@@ -8,7 +8,10 @@
   <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher">
     <param name="use_gui" value="false"/>
   </node>
-  <node pkg="xiaomi_bridge" type="xiaomi_bridge_node" name="xiaomi_bridge_node" output="screen">
+  <node pkg="rockrobo_ros_bridge" type="rockrobo_ros_bridge_node" name="rockrobo_ros_bridge_node" output="screen">
     <param name="vacuum_ip" type="str" value="192.168.31.120" />
   </node>
+
+  <!-- Move base -->
+  <include file="$(find rockrobo_ros_bridge)/launch/include/move_base_2wd.launch" />
 </launch>

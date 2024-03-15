@@ -1,5 +1,5 @@
 #include <libplayerc/playerc.h>
-#include <xiaomi_bridge/xiaomi_player_interface.h>
+#include <rockrobo_ros_bridge/xiaomi_player_interface.h>
 
 XiaomiPlayerInterface::XiaomiPlayerInterface(std::string vacuum_ip) {
 

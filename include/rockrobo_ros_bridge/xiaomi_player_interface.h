@@ -1,5 +1,5 @@
-#ifndef XIAOMI_BRIDGE_XIAOMI_PLAYER_INTERFACE_H
-#define XIAOMI_BRIDGE_XIAOMI_PLAYER_INTERFACE_H
+#ifndef rockrobo_ros_bridge_XIAOMI_PLAYER_INTERFACE_H
+#define rockrobo_ros_bridge_XIAOMI_PLAYER_INTERFACE_H
 
 #include "libplayerc/playerc.h"
 #include <iostream>
@@ -60,4 +60,4 @@ private:
   playerc_power_t *battery_info_;
 };
 
-#endif // XIAOMI_BRIDGE_XIAOMI_PLAYER_INTERFACE_H
+#endif // rockrobo_ros_bridge_XIAOMI_PLAYER_INTERFACE_H

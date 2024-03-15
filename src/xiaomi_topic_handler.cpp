@@ -1,4 +1,4 @@
-#include <xiaomi_bridge/xiaomi_topic_handler.h>
+#include <rockrobo_ros_bridge/xiaomi_topic_handler.h>
 
 XiaomiTopicHandler::XiaomiTopicHandler(ros::NodeHandle nh)
 {

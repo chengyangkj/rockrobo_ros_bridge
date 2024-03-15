@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.10.0)
-project(xiaomi_bridge)
+project(rockrobo_ros_bridge)
 
 include(ExternalProject)
 set (CMAKE_CXX_STANDARD 11)
@@ -16,7 +16,7 @@ find_package(catkin REQUIRED COMPONENTS
 
 catkin_package(
 #  INCLUDE_DIRS include
-#  LIBRARIES xiaomi_bridge
+#  LIBRARIES rockrobo_ros_bridge
 #  CATKIN_DEPENDS nav_msgs roscpp rospy sensor_msgs std_msgs tf
 #  DEPENDS system_lib
 )
@@ -34,13 +34,13 @@ include_directories(
   ${CATKIN_DEVEL_PREFIX}/include
 )
 
-add_executable(xiaomi_bridge_node src/xiaomi_bridge_node.cpp src/xiaomi_topic_handler.cpp src/xiaomi_player_interface.cpp)
+add_executable(rockrobo_ros_bridge_node src/rockrobo_ros_bridge_node.cpp src/xiaomi_topic_handler.cpp src/xiaomi_player_interface.cpp)
 
 link_directories(/usr/local/lib)
 
 # 将库的头文件目录添加到项目的包含路径中
 include_directories(/usr/local/include/player-3.1)
-# add_dependencies(xiaomi_bridge_node)
+# add_dependencies(rockrobo_ros_bridge_node)
 target_link_libraries(${PROJECT_NAME}_node
   ${catkin_LIBRARIES}
 libplayerc++.so libplayerc.so

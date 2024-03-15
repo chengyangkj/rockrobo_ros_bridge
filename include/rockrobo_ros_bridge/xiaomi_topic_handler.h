@@ -1,5 +1,5 @@
-#ifndef XIAOMI_BRIDGE_XIAOMI_TOPIC_HANDLER_H
-#define XIAOMI_BRIDGE_XIAOMI_TOPIC_HANDLER_H
+#ifndef rockrobo_ros_bridge_XIAOMI_TOPIC_HANDLER_H
+#define rockrobo_ros_bridge_XIAOMI_TOPIC_HANDLER_H
 
 #include <math.h>
 
@@ -15,7 +15,7 @@
 #include <geometry_msgs/TransformStamped.h>
 #include <tf/transform_broadcaster.h>
 
-#include <xiaomi_bridge/xiaomi_player_interface.h>
+#include <rockrobo_ros_bridge/xiaomi_player_interface.h>
 
 class XiaomiTopicHandler
 {
@@ -55,4 +55,4 @@ private:
 
 };
 
-#endif //XIAOMI_BRIDGE_XIAOMI_TOPIC_HANDLER_H
+#endif //rockrobo_ros_bridge_XIAOMI_TOPIC_HANDLER_H

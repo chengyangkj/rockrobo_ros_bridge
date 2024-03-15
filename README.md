@@ -57,7 +57,7 @@ The node can be started on another computer in the same network as the vacuum cl
 	* _/cliff/right [sensor\_msgs::Range]_
 	* _/cliff/left [sensor\_msgs::Range]_
 * *Launch Files*
-	* _bringup.launch_ __|__ starts the xiaomi_bridge_node, loads the robot model, and starts the robot state publisher. Contains the setting of the IP address parameter.
+	* _bringup.launch_ __|__ starts the rockrobo_ros_bridge_node, loads the robot model, and starts the robot state publisher. Contains the setting of the IP address parameter.
 	* _move_base.launch_ __|__ starts the move_base node
 	* _navigation.launch_ __|__ starts all needed nodes and loads all parameters for navigation
 	* _rviz.launch_ __|__ starts rviz with the provided config file
@@ -70,7 +70,7 @@ The configuration for the navigation stack is closely oriented to the TurtleBot.
 
 ### rviz configuration overview
 
-![rviz overview](https://raw.githubusercontent.com/arne48/xiaomi_bridge/master/images/rviz_xiaomi.png)
+![rviz overview](https://raw.githubusercontent.com/arne48/rockrobo_ros_bridge/master/images/rviz_xiaomi.png)
 
 ## Known issues
 1. The robot can't be controlled while a bumper is pressed.

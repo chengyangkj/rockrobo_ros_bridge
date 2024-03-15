@@ -1,16 +1,14 @@
 <?xml version="1.0"?>
 <launch>
   <!-- Xiaomi Bridge -->
-  <include file="$(find xiaomi_bridge)/launch/bringup.launch" />
+  <include file="$(find rockrobo_ros_bridge)/launch/bringup.launch" />
 
   <!-- Map server -->
-  <arg name="map_file" default="$(find xiaomi_bridge)/map/map.yaml"/>
+  <arg name="map_file" default="$(find rockrobo_ros_bridge)/map/map.yaml"/>
   <node name="map_server" pkg="map_server" type="map_server" args="$(arg map_file)" output="screen"/>
 
   <!-- AMCL -->
-  <include file="$(find xiaomi_bridge)/launch/include/amcl.launch" output="screen">
+  <include file="$(find rockrobo_ros_bridge)/launch/include/amcl.launch" output="screen">
   </include>
 
-  <!-- Move base -->
-  <include file="$(find xiaomi_bridge)/launch/include/move_base_2wd.launch" />
 </launch>
